@@ -1,52 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context=".StartActivity">
 
-    <Button
-        android:id="@+id/buttonStart"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@color/colorPrimary"
-        android:onClick="onClickButtonStart"
-        android:padding="18dp"
-        android:text="@string/button_start"
-        android:textAllCaps="true"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRecord" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textViewRecord"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewInstruction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_bottom_margin"
+            app:layout_constraintBottom_toTopOf="@+id/cardViewSettings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/citation" />
+            <TextView
+                android:id="@+id/citation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/start_display_margin"
+                android:layout_marginTop="@dimen/content_viewcard_top_and_bottom_margin"
+                android:layout_marginEnd="@dimen/start_display_margin"
+                android:layout_marginBottom="@dimen/content_viewcard_top_and_bottom_margin"
+                android:textSize="@dimen/text_size_settings"
+                android:gravity="end"
+                android:text="@string/citation"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="italic" />
+        </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/citation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="right"
-        android:text="@string/citation"
-        android:textColor="@android:color/darker_gray"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_bottom_margin"
+            app:layout_constraintBottom_toTopOf="@+id/cardViewRecord"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardViewInstruction">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/content_viewcard_top_and_bottom_margin"
+                android:layout_marginBottom="@dimen/content_viewcard_top_and_bottom_margin">
+
+                <TextView
+                    android:id="@+id/textViewSelectModeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/start_display_margin"
+                    android:layout_marginEnd="@dimen/start_display_margin"
+                    android:text="@string/mode_selection_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/start_display_margin"
+                    android:layout_marginEnd="@dimen/start_display_margin"
+                    android:entries="@array/spinner_mode"
+                    android:minHeight="@dimen/spinner_min_Height"
+                    android:spinnerMode="dialog"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewSelectModeLabel" />
+
+                <TextView
+                    android:id="@+id/textViewLabelMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/start_display_margin"
+                    android:layout_marginTop="@dimen/content_top_margin"
+                    android:layout_marginEnd="@dimen/start_display_margin"
+                    android:text="@string/minimum_value"
+                    android:textSize="@dimen/text_size_settings"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+
+                <EditText
+                    android:id="@+id/editTextMin"
+                    android:autofillHints="@string/autofill_hints_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="@string/autofill_hints_min"
+                    android:text="@string/default_minimum_value"
+                    android:textSize="@dimen/text_size_settings"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewLabelMin"
+                    app:layout_constraintEnd_toEndOf="@+id/editTextMax"
+
+                    app:layout_constraintStart_toStartOf="@+id/editTextMax"
+                    app:layout_constraintTop_toTopOf="@+id/textViewLabelMin" />
+
+                <TextView
+                    android:id="@+id/textViewLabelMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/autofill_hints_max"
+                    android:layout_marginStart="@dimen/start_display_margin"
+                    android:layout_marginTop="@dimen/content_top_margin"
+                    android:layout_marginEnd="@dimen/start_display_margin"
+                    android:text="@string/maximum_value"
+                    android:textSize="@dimen/text_size_settings"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextMin" />
+
+                <EditText
+                    android:id="@+id/editTextMax"
+                    android:layout_width="wrap_content"
+                    android:hint="@string/autofill_hints_max"
+                    android:importantForAutofill="no"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/input_start_margin"
+                    android:inputType="number"
+                    android:text="@string/default_maximum_value"
+                    android:textSize="@dimen/text_size_settings"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewLabelMax"
+                    app:layout_constraintStart_toEndOf="@+id/textViewLabelMax"
+                    app:layout_constraintTop_toTopOf="@+id/textViewLabelMax" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewRecord"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_bottom_margin"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/buttonStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewSettings">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/content_viewcard_top_and_bottom_margin"
+                android:layout_marginBottom="@dimen/content_viewcard_top_and_bottom_margin"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:id="@+id/textViewRecord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/start_display_margin"
+                    android:layout_marginEnd="@dimen/start_display_margin"
+                    android:layout_weight="1"
+                    android:text="@string/template_record_result"
+                    android:textSize="@dimen/record_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewSettings" />
+
+                <ImageView
+                    android:id="@+id/imageViewRefresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/start_display_margin"
+                    android:layout_marginEnd="@dimen/start_display_margin"
+                    android:layout_weight="6"
+
+                    android:contentDescription="@string/image_description_remove_record"
+                    app:srcCompat="@drawable/ic_action_refrech"
+                    tools:ignore="VectorDrawableCompat" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_bottom_margin"
+            android:background="@color/colorPrimary"
+            android:onClick="onClickButtonStart"
+            android:padding="18dp"
+            android:text="@string/button_start"
+            android:textAllCaps="true"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardViewRecord" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

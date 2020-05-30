@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Brain Trainer</string>
+    <string name="button_restart">НАЧАТЬ ЗАНОВО</string>
+    <string name="RESULT">Ваш результат: %d\nМаксимальный результат: %d</string>
+    <string name="button_start">Начать упражнение</string>
+    <string name="citation">"В течение 1 минуты тебе будут задавться вопросы, твоя задача - ответить правильно на максимальное количество. Когда будешь готов начать - нажми кнопку "Старт".</string>
+    <string name="start_string_max">Максимальный результат: %d</string>
+    <string name="message_false">Не верно!</string>
+    <string name="minimum_value">Минимальное число</string>
+    <string name="image_description_remove_record">удалить рекорд</string>
+    <string name="template_record_result">Максимальный результат: 0</string>
+    <string name="maximum_value">Максимальное число</string>
+    <string-array name="spinner_mode">
+
+        <item>Умножение</item>
+        <item>Сложение и вычитание</item>
+
+    </string-array>
+
+</resources>

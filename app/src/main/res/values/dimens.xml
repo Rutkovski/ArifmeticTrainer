@@ -2,4 +2,12 @@
 <resources>
     <dimen name="padding_inside_textview">32dp</dimen>
     <dimen name="text_size_button">24sp</dimen>
+    <dimen name="start_display_margin">8dp</dimen>
+    <dimen name="card_bottom_margin">16dp</dimen>
+    <dimen name="content_viewcard_top_and_bottom_margin">24dp</dimen>
+    <dimen name="spinner_min_Height">18dp</dimen>
+    <dimen name="text_size_settings">16sp</dimen>
+    <dimen name="content_top_margin">8dp</dimen>
+    <dimen name="input_start_margin">8dp</dimen>
+    <dimen name="record_text_size">24sp</dimen>
 </resources>

@@ -1,13 +1,31 @@
 <resources>
     <string name="app_name">Brain Trainer</string>
-    <string name="button_restart">НАЧАТЬ ЗАНОВО</string>
-    <string name="RESULT">Ваш результат: %d\nМаксимальный результат: %d</string>
-    <string name="default_count">0 / 0</string>
-    <string name="format_sum_plus">%d + %d = ?</string>
-    <string name="format_sum_minus">%d - %d = ?</string>
-    <string name="pattern_time">mm:ss</string>
-    <string name="score_fomat">%2d / %2d</string>
-    <string name="button_start">Начать тренировку</string>
-    <string name="citation">«Математику уже за то любить надо, что она ум в порядок приводит...» М.В. Ломоносов</string>
-    <string name="start_string_max">Максимальный результат: %d</string>
+    <string name="button_restart">Restart</string>
+    <string name="RESULT">Your result: %d\nMaximum result: %d</string>
+    <string name="default_count" translatable="false">0 / 0</string>
+    <string name="format_sum_plus" translatable="false">%d + %d = ?</string>
+    <string name="format_multiplication" translatable="false">%d x %d = ?</string>
+    <string name="format_sum_minus" translatable="false">%d - %d = ?</string>
+    <string name="pattern_time" translatable="false">mm:ss</string>
+    <string name="score_fomat" translatable="false">%2d / %2d</string>
+    <string name="button_start">Start exercise</string>
+    <string name="citation">Within 1 minute you will be asked questions, your task is to answer correctly to the maximum number.
+        \nWhen you are ready to start, press the \"Start\" button.</string>
+    <string name="start_string_max">Maximum result: %d</string>
+    <string name="message_false">Wrong!</string>
+    <string name="minimum_value">Minimum number</string>
+    <string name="default_minimum_value" translatable="false">1</string>
+    <string name="maximum_value">Maximum number</string>
+    <string name="default_maximum_value" translatable="false">9</string>
+    <string name="image_description_remove_record">remove record</string>
+    <string name="template_record_result">Maximum result: 0</string>
+    <string name="mode_selection_label">Режим занятий</string>
+    <string name="autofill_hints_min">1</string>
+    <string name="autofill_hints_max">9</string>
+    <string-array name="spinner_mode">
+
+        <item>Multiplication</item>
+        <item>Addition and Subtraction</item>
+
+    </string-array>
 </resources>
