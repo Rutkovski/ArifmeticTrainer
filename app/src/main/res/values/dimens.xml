@@ -5,9 +5,19 @@
     <dimen name="start_display_margin">8dp</dimen>
     <dimen name="card_bottom_margin">16dp</dimen>
     <dimen name="content_viewcard_top_and_bottom_margin">24dp</dimen>
-    <dimen name="spinner_min_Height">18dp</dimen>
-    <dimen name="text_size_settings">16sp</dimen>
-    <dimen name="content_top_margin">8dp</dimen>
+    <dimen name="spinner_min_Height">22dp</dimen>
+    <dimen name="text_size_settings">18sp</dimen>
+    <dimen name="content_top_margin">16dp</dimen>
     <dimen name="input_start_margin">8dp</dimen>
-    <dimen name="record_text_size">24sp</dimen>
+    <dimen name="record_text_size">20sp</dimen>
+    <dimen name="margin_upper_line">24dp</dimen>
+    <dimen name="margin_top_upper_line">36dp</dimen>
+    <dimen name="textSize_upper_line">24sp</dimen>
+    <dimen name="task_text_size">56sp</dimen>
+    <dimen name="button_restart_margin">16dp</dimen>
+    <dimen name="button_restart_padding">18dp</dimen>
+    <dimen name="button_restart_text_size">18sp</dimen>
+    <dimen name="result_padding">16dp</dimen>
+    <dimen name="result_text_size">24sp</dimen>
+    <dimen name="instruction_text_size">14sp</dimen>
 </resources>

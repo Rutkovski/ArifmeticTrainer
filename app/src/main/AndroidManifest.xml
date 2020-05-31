@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.demo.braintrainer">
+    package="com.rutkovski.arithmetic">
 
     <application
         android:allowBackup="true"
@@ -9,14 +9,18 @@
         android:roundIcon="@drawable/brain"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity">
+        <activity android:name="com.rutkovski.arithmetic.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name="com.rutkovski.arithmetic.ResultActivity"
+            android:label="@string/results_title"
+            />
+        <activity android:name="com.rutkovski.arithmetic.MainActivity"
+            android:label="@string/training_title"
+            />
     </application>
 
 </manifest>

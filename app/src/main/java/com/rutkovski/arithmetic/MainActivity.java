@@ -1,9 +1,11 @@
-package com.demo.braintrainer;
+package com.rutkovski.arithmetic;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,21 +17,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private final long DEFAULT_VALUE_TIMER = 60000;
     private TextView textViewCount;
     private TextView textViewTimer;
     private TextView textViewTask;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
+
     private ArrayList <Integer> wrongAnswers = new ArrayList<>();
     private int answer;
     private int numberOfRightAnswer;
-    private int min = 2;
-    private int max = 10;
+    private int min;
+    private int max;
     private ArrayList<Button> buttons;
     private String sum;
     private boolean gameOver;
@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
         textViewCount = findViewById(R.id.textViewCount);
         textViewTimer = findViewById(R.id.TextViewTimer);
         textViewTask = findViewById(R.id.textViewTask);
-        button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button2);
-        button3 = findViewById(R.id.button3);
-        button4 = findViewById(R.id.button4);
+        Button button1 = findViewById(R.id.button1);
+        Button button2 = findViewById(R.id.button2);
+        Button button3 = findViewById(R.id.button3);
+        Button button4 = findViewById(R.id.button4);
         buttons = new ArrayList<>(Arrays.asList(button1, button2, button3, button4));
         gameOver = false;
         countRight = 0;
@@ -62,7 +62,12 @@ public class MainActivity extends AppCompatActivity {
             countRight = savedInstanceState.getInt("countRight");
             countAll = savedInstanceState.getInt("countAll");
         }
-        mode = 0;
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mode = sharedPreferences.getInt("mode",0);
+        min = sharedPreferences.getInt("minNumbers", 2);
+        max = sharedPreferences.getInt("maxNumbers", 10)+1;
+
     }
 
     @Override
@@ -74,13 +79,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        ArrayList<String> list = savedInstanceState.getStringArrayList("value_buttons");
-        for (int i = 0; i < list.size(); i++) {
-            buttons.get(i).setText(list.get(i));
-        }
-        numberOfRightAnswer = savedInstanceState.getInt("numberOfRightAnswer");
-        sum = savedInstanceState.getString("sum");
-        textViewTask.setText(sum);
+
+        ArrayList <String> list = savedInstanceState.getStringArrayList("value_buttons");
+
+            for (int i = 0; i < list.size(); i++) {
+                buttons.get(i).setText(list.get(i));
+            }
+            numberOfRightAnswer = savedInstanceState.getInt("numberOfRightAnswer");
+            sum = savedInstanceState.getString("sum");
+            textViewTask.setText(sum);
+
+
     }
 
     @Override
@@ -126,11 +135,11 @@ public class MainActivity extends AppCompatActivity {
         playGame();
         for (int i = 0; i < buttons.size(); i++) {
             if (i == numberOfRightAnswer) {
-                buttons.get(i).setText(Integer.toString(answer));
+                buttons.get(i).setText(String.format(Locale.getDefault(),"%d",answer));
             } else {
 
                 int wrongAnswer = generateWrongAnswer();
-                buttons.get(i).setText(Integer.toString(wrongAnswer));
+                buttons.get(i).setText(String.format(Locale.getDefault(),"%d",wrongAnswer));
                 wrongAnswers.add(wrongAnswer);
 
             }
@@ -145,9 +154,9 @@ public class MainActivity extends AppCompatActivity {
         int number2 =(int)(Math.random() * (max - min) + min);
 
         if (mode == 0) {
-            setSumPlusAndMinus(number1, number2);
-        } else if (mode == 1) {
             setSumMultiplication(number1, number2);
+        } else if (mode == 1) {
+            setSumPlusAndMinus(number1, number2);
         }
         numberOfRightAnswer = (int) (Math.random() * buttons.size());
         textViewTask.setText(sum);
@@ -217,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTick(long l) {
                 currentValueTimer = l;
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(getString(R.string.pattern_time));
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(getString(R.string.pattern_time),Locale.getDefault());
                 String time = simpleDateFormat.format(l);
                 if (l < 10000) {
                     textViewTimer.setTextColor(getResources().getColor(android.R.color.holo_red_dark));

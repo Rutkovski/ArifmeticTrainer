@@ -18,6 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/card_bottom_margin"
+            app:cardBackgroundColor="@color/cardview_light_background"
             app:layout_constraintBottom_toTopOf="@+id/cardViewSettings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,16 +26,16 @@
 
             <TextView
                 android:id="@+id/citation"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/start_display_margin"
                 android:layout_marginTop="@dimen/content_viewcard_top_and_bottom_margin"
                 android:layout_marginEnd="@dimen/start_display_margin"
                 android:layout_marginBottom="@dimen/content_viewcard_top_and_bottom_margin"
-                android:textSize="@dimen/text_size_settings"
-                android:gravity="end"
+                android:gravity="center"
                 android:text="@string/citation"
                 android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/instruction_text_size"
                 android:textStyle="italic" />
         </androidx.cardview.widget.CardView>
 
@@ -61,6 +62,7 @@
                     android:layout_marginStart="@dimen/start_display_margin"
                     android:layout_marginEnd="@dimen/start_display_margin"
                     android:text="@string/mode_selection_label"
+                    android:textSize="@dimen/text_size_settings"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,10 +72,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/start_display_margin"
-                    android:layout_marginEnd="@dimen/start_display_margin"
                     android:entries="@array/spinner_mode"
                     android:minHeight="@dimen/spinner_min_Height"
-                    android:spinnerMode="dialog"
+                    android:spinnerMode="dropdown"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textViewSelectModeLabel" />
 
@@ -92,16 +93,15 @@
 
                 <EditText
                     android:id="@+id/editTextMin"
-                    android:autofillHints="@string/autofill_hints_min"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:hint="@string/min_hint"
+                    android:importantForAutofill="no"
                     android:inputType="number"
-                    android:hint="@string/autofill_hints_min"
                     android:text="@string/default_minimum_value"
                     android:textSize="@dimen/text_size_settings"
                     app:layout_constraintBottom_toBottomOf="@+id/textViewLabelMin"
                     app:layout_constraintEnd_toEndOf="@+id/editTextMax"
-
                     app:layout_constraintStart_toStartOf="@+id/editTextMax"
                     app:layout_constraintTop_toTopOf="@+id/textViewLabelMin" />
 
@@ -109,7 +109,6 @@
                     android:id="@+id/textViewLabelMax"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/autofill_hints_max"
                     android:layout_marginStart="@dimen/start_display_margin"
                     android:layout_marginTop="@dimen/content_top_margin"
                     android:layout_marginEnd="@dimen/start_display_margin"
@@ -117,15 +116,15 @@
                     android:textSize="@dimen/text_size_settings"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextMin" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewLabelMin" />
 
                 <EditText
                     android:id="@+id/editTextMax"
                     android:layout_width="wrap_content"
-                    android:hint="@string/autofill_hints_max"
-                    android:importantForAutofill="no"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/input_start_margin"
+                    android:hint="@string/max_hint"
+                    android:importantForAutofill="no"
                     android:inputType="number"
                     android:text="@string/default_maximum_value"
                     android:textSize="@dimen/text_size_settings"
@@ -166,17 +165,18 @@
                     android:layout_weight="1"
                     android:text="@string/template_record_result"
                     android:textSize="@dimen/record_text_size"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cardViewSettings" />
 
-                <ImageView
-                    android:id="@+id/imageViewRefresh"
+                <ImageButton
+                    android:id="@+id/buttonRefresh"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/start_display_margin"
                     android:layout_marginEnd="@dimen/start_display_margin"
-                    android:layout_weight="6"
-
+                    android:layout_weight="5"
+                    android:background="@android:color/white"
                     android:contentDescription="@string/image_description_remove_record"
                     app:srcCompat="@drawable/ic_action_refrech"
                     tools:ignore="VectorDrawableCompat" />
@@ -188,13 +188,14 @@
 
         <Button
             android:id="@+id/buttonStart"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/card_bottom_margin"
             android:background="@color/colorPrimary"
-            android:onClick="onClickButtonStart"
             android:padding="18dp"
             android:text="@string/button_start"
+            android:layout_margin="@dimen/button_restart_margin"
+
             android:textAllCaps="true"
             android:textColor="@android:color/background_light"
             android:textSize="18sp"

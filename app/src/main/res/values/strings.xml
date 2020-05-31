@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Brain Trainer</string>
+    <string name="app_name">Arithmetic Trainer</string>
     <string name="button_restart">Restart</string>
     <string name="RESULT">Your result: %d\nMaximum result: %d</string>
     <string name="default_count" translatable="false">0 / 0</string>
@@ -8,20 +8,40 @@
     <string name="format_sum_minus" translatable="false">%d - %d = ?</string>
     <string name="pattern_time" translatable="false">mm:ss</string>
     <string name="score_fomat" translatable="false">%2d / %2d</string>
-    <string name="button_start">Start exercise</string>
-    <string name="citation">Within 1 minute you will be asked questions, your task is to answer correctly to the maximum number.
-        \nWhen you are ready to start, press the \"Start\" button.</string>
+    <string name="button_start">start</string>
+    <string name="citation">Within 1 minute, your task is to answer the maximum number of questions correctly.\nWhen you are ready to start, click \"Start\"</string>
     <string name="start_string_max">Maximum result: %d</string>
     <string name="message_false">Wrong!</string>
-    <string name="minimum_value">Minimum number</string>
+    <string name="minimum_value">Minimum number:</string>
     <string name="default_minimum_value" translatable="false">1</string>
-    <string name="maximum_value">Maximum number</string>
+    <string name="maximum_value">Maximum number:</string>
     <string name="default_maximum_value" translatable="false">9</string>
     <string name="image_description_remove_record">remove record</string>
     <string name="template_record_result">Maximum result: 0</string>
-    <string name="mode_selection_label">Режим занятий</string>
-    <string name="autofill_hints_min">1</string>
-    <string name="autofill_hints_max">9</string>
+    <string name="mode_selection_label">Training mode:</string>
+    <string name="autofill_hints_min" translatable="false">1</string>
+    <string name="autofill_hints_max" translatable="false">9</string>
+    <string name="warning_set_numbers">The minimum number must be less than the maximum!</string>
+    <string name="warning_set_min_numbers">Enter any number from 1 to 990</string>
+    <string name="warning_set_max_number">Enter any number up to 999</string>
+    <string name="tag_button_0" translatable="false">0</string>
+    <string name="tag_button_1" translatable="false">1</string>
+    <string name="tag_button_2" translatable="false">2</string>
+    <string name="tag_button_3" translatable="false">3</string>
+    <string name="max_hint" translatable="false">99</string>
+    <string name="min_hint" translatable="false">01</string>
+    <string name="template_result_info" translatable="false">your result: 0</string>
+    <string name="button_go_back_to_main">go back to main</string>
+
+
+    <string name="reset">Are you sure you want to break the record?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="warning">Warning!</string>
+    <string name="results_title">Results</string>
+    <string name="training_title">Training</string>
+
+
     <string-array name="spinner_mode">
 
         <item>Multiplication</item>

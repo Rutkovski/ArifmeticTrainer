@@ -1,4 +1,4 @@
-package com.demo.braintrainer;
+package com.rutkovski.arithmetic;
 
 import android.content.Context;
 

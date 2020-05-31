@@ -1,20 +1,30 @@
 <resources>
-    <string name="app_name">Brain Trainer</string>
-    <string name="button_restart">НАЧАТЬ ЗАНОВО</string>
+    <string name="app_name">Арифметический тренажер</string>
+    <string name="button_restart">повторить</string>
     <string name="RESULT">Ваш результат: %d\nМаксимальный результат: %d</string>
-    <string name="button_start">Начать упражнение</string>
-    <string name="citation">"В течение 1 минуты тебе будут задавться вопросы, твоя задача - ответить правильно на максимальное количество. Когда будешь готов начать - нажми кнопку "Старт".</string>
+    <string name="button_start">старт</string>
+    <string name="citation">"В течение 1 минуты твоя задача - ответить правильно на максимальное количество вопросов.\n Когда будешь готов начать - нажми \"Старт\".</string>
     <string name="start_string_max">Максимальный результат: %d</string>
     <string name="message_false">Не верно!</string>
-    <string name="minimum_value">Минимальное число</string>
+    <string name="minimum_value">Минимальное число:</string>
     <string name="image_description_remove_record">удалить рекорд</string>
     <string name="template_record_result">Максимальный результат: 0</string>
-    <string name="maximum_value">Максимальное число</string>
+    <string name="maximum_value">Максимальное число:</string>
     <string-array name="spinner_mode">
-
         <item>Умножение</item>
         <item>Сложение и вычитание</item>
-
     </string-array>
+    <string name="mode_selection_label">Режим занятий:</string>
+    <string name="warning_set_numbers">Минимальное число  должно быть меньше, чем максимальное!</string>
+    <string name="warning_set_min_numbers">Введите любое число от 1 до 990</string>
+    <string name="warning_set_max_number">Введите любое число до 999</string>
+    <string name="button_go_back_to_main">Вернуться на главную</string>
+    <string name="reset">Уверенны, что хотите сбросить рекорд?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="warning">Внимание!</string>
+    <string name="results_title">Результаты</string>
+    <string name="training_title">Тренировка</string>
+
 
 </resources>
